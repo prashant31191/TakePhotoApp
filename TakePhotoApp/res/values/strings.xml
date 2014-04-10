@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TakePhotoApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Save Photo</string>
+    <string name="take_photo_button">Take Photo</string>
+     <string name="get_name_photo">Enter the file name</string>
+    
+
+</resources>
