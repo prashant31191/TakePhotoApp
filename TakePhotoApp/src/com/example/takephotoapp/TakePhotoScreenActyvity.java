@@ -114,7 +114,7 @@ public class TakePhotoScreenActyvity extends Activity {
 			adb.setTitle(R.string.get_name_photo);
 			final EditText input = new EditText(this);
 			adb.setView(input);
-			adb.setPositiveButton("Œ ", new DialogInterface.OnClickListener() {
+			adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
 				public void onClick(DialogInterface dialog, int whichButton) {
 					fileName = input.getText().toString();

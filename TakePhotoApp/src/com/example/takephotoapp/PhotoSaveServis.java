@@ -39,24 +39,22 @@ public class PhotoSaveServis extends Service {
 		if (temporalPhotoPath != null) {
 			saveFileDirectory = Environment
 					.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-			if (saveFileDirectory != null) {
-				image = new File(saveFileDirectory + File.separator + name
-						+ ".png");
-				try {
-					input = new FileInputStream(temporalImage);
-					output = new FileOutputStream(image);
+			saveFileDirectory.mkdir();
+			image = new File(saveFileDirectory + File.separator + name + ".png");
+			try {
+				input = new FileInputStream(temporalImage);
+				output = new FileOutputStream(image);
 
-					byte[] bufphoto = new byte[1024];
-					int count;
-					while ((count = input.read(bufphoto)) > 0)
-						output.write(bufphoto, 0, count);
+				byte[] bufphoto = new byte[1024];
+				int count;
+				while ((count = input.read(bufphoto)) > 0)
+					output.write(bufphoto, 0, count);
 
-				} catch (Exception e) {
+			} catch (Exception e) {
 
-				} finally {
-					input.close();
-					output.close();
-				}
+			} finally {
+				input.close();
+				output.close();
 			}
 
 		} else {
@@ -67,11 +65,11 @@ public class PhotoSaveServis extends Service {
 
 	public File createTemporalFile() throws IOException {
 		cacheDirectory = getExternalCacheDir();
-		if (cacheDirectory != null) {
-			temporalImage = new File(cacheDirectory + File.separator
-					+ temporalFileName);
-			temporalPhotoPath = temporalImage.getAbsolutePath();
-		}
+		cacheDirectory.mkdir();
+		temporalImage = new File(cacheDirectory + File.separator
+				+ temporalFileName);
+		temporalPhotoPath = temporalImage.getAbsolutePath();
+
 		return temporalImage;
 	}
 
